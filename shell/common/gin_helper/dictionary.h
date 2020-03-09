@@ -134,6 +134,8 @@ class Dictionary : public gin::Dictionary {
 
   bool IsEmpty() const { return isolate() == nullptr || GetHandle().IsEmpty(); }
 
+  v8::Isolate* GetIsolate() const { return isolate(); }
+
   v8::Local<v8::Object> GetHandle() const {
     return gin::ConvertToV8(isolate(),
                             *static_cast<const gin::Dictionary*>(this))
